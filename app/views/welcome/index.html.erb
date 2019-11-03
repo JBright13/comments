@@ -1,0 +1,20 @@
+<%=image_tag("droplet.png")%>
+ <h1 style="text-align:center">Drop Your Comments!</h1>
+    <div class="wrapper">
+        <div class="top">
+            <%= form_with scope: :comment, url: '/comment/store', local: true do |form| %>
+            <div class="form-group">
+                <%= form.label :comment %>
+                <%= form.text_field :comment %>
+                <%= form.submit %>
+            </div>
+
+            <% end %>
+        </div>
+        <div class="bottom" id="comment_section">
+            <h2>Comments</h2>
+            <% @comments.each do |comment| %>
+                <p><%= comment.comment %></p>
+            <% end %>
+        </div>  
+    </div>
